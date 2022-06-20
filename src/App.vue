@@ -2,7 +2,7 @@
   <div class="bg-bg min-h-screen">
     <Header />
     <router-view v-slot="{ Component }">
-      <transition name="fade">
+      <transition name="fade" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view>
