@@ -32,7 +32,6 @@
 
 <script >
 export default {
-  name: 'Cocktail',
   async created() {
     const res = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${this.$route.params.id}`)
     const data = await res.json()

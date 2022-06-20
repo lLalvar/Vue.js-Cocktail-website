@@ -1,5 +1,5 @@
 <template>
-  <ul class="container mx-auto grid gap-[2vw] grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-8 justify-items-center">
+  <ul class="container mx-auto px-4 grid gap-clamp grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-8 justify-items-center">
     <li class="w-full" :key="cocktail.idDrink" v-for="cocktail in this.cocktails">
       <router-link :to="`/cocktail/${cocktail.idDrink}`"
         class="w-full rounded-xl cursor-pointer flex flex-col overflow-hidden">
@@ -12,12 +12,10 @@
         </div>
       </router-link>
     </li>
-
   </ul>
 </template>
 <script>
 export default {
-  name: 'Home',
   async created() {
     const res = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a')
     const data = await res.json()

@@ -1,7 +1,11 @@
 <template>
   <div class="bg-bg min-h-screen">
     <Header />
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <transition name="fade">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
 
@@ -21,4 +25,14 @@ export default {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
 </style>
