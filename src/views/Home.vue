@@ -19,7 +19,6 @@ export default {
   async created() {
     const res = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a')
     const data = await res.json()
-    console.log(data.drinks[0]);
     this.cocktails = data.drinks
   },
   methods: {

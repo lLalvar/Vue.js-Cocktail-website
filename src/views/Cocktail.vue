@@ -36,7 +36,6 @@ export default {
     const res = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${this.$route.params.id}`)
     const data = await res.json()
     this.cocktail = data.drinks[0]
-    console.log(data.drinks[0]);
   },
   data() {
     return {

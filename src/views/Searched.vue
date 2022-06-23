@@ -19,17 +19,11 @@
 
 <script >
 export default {
-  created() {
-    // this.fetchData()
-    // this.$watch(() => this.$route.params.id, () => this.fetchData());
-  },
-
   methods: {
     async fetchData() {
       const res = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.$route.params.id}`)
       const data = await res.json()
       this.searchedCocktails = data.drinks
-      console.log(this.searchedCocktails);
     },
   },
 
@@ -41,16 +35,6 @@ export default {
       immediate: true
     }
   },
-  // handler() {
-  //   $route.params.id(){
-  //     this.fetchData()
-  //   }
-  // },
-  // immediate: true
-  // '$route.params.id'() {
-  //   this.fetchData()
-  // }
-  // },
 
   data() {
     return {
