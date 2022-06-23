@@ -19,8 +19,9 @@
 
 <script >
 export default {
-  async created() {
-    this.fetchData()
+  created() {
+    // this.fetchData()
+    // this.$watch(() => this.$route.params.id, () => this.fetchData());
   },
 
   methods: {
@@ -33,10 +34,23 @@ export default {
   },
 
   watch: {
-    $route: function () {
-      this.fetchData()
+    '$route.params.id': {
+      handler() {
+        this.fetchData()
+      },
+      immediate: true
     }
   },
+  // handler() {
+  //   $route.params.id(){
+  //     this.fetchData()
+  //   }
+  // },
+  // immediate: true
+  // '$route.params.id'() {
+  //   this.fetchData()
+  // }
+  // },
 
   data() {
     return {
